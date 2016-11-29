@@ -1,0 +1,62 @@
+﻿
+.color-primary-0 { color: #FF4F00 }	
+.color-primary-1 { color: #FF8046 }
+.color-primary-2 { color: #FF5B11 }
+.color-primary-3 { color: #F44C00 }
+.color-primary-4 { color: #BD3B00 }
+
+.color-secondary-1-0 { color: #02BADC }	
+.color-secondary-1-1 { color: #40C3DB }
+.color-secondary-1-2 { color: #13BCDB }
+.color-secondary-1-3 { color: #017F96 }
+.color-secondary-1-4 { color: #016275 }
+
+.color-secondary-2-0 { color: #00ED00 }	
+.color-secondary-2-1 { color: #41EC41 }
+.color-secondary-2-2 { color: #0FEC0F }
+.color-secondary-2-3 { color: #00C300 }
+.color-secondary-2-4 { color: #009700 }
+
+@keyframes makeVisible{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+@mixin animation-mixim($name, $duration,$delay) {
+  animation:$name $duration ease-in;
+  animation-delay:$delay;
+
+}
+#container {
+    background: linear-gradient(90deg, #FF4F00 , #02BADC);
+    width:100%;
+    height:100%;
+}
+
+#welcome {
+    position:absolute;
+    top:40%;
+    @extend .color-secondary-2-0;
+    font-family: Impact, Charcoal, sans-serif;
+    #one{
+        @include animation-mixim(makeVisible,1,1)
+    }
+    #two{
+        @include animation-mixim(makeVisible,1,2)
+    }
+    #three{
+        @include animation-mixim(makeVisible,1,3)
+    }
+    #four{
+        @include animation-mixim(makeVisible,1,4)
+    }
+    #five{
+        @include animation-mixim(makeVisible,1,5)
+    }
+    #six{
+        @include animation-mixim(makeVisible,1,6)
+    }
+}
