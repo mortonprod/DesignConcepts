@@ -1,0 +1,47 @@
+﻿@keyframes singleBlink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes makeVisible {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes makeVisibleThenJump {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+        transform:translate(0px,0px);
+    }
+    80%{
+        transform:translate(10px,10px);
+    }
+    90%{
+        opacity: 0.5;
+    }
+    100%{
+        transform:translate(-500px,-500px);
+        opacity: 0;
+    }
+}
+

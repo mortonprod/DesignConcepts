@@ -1,0 +1,5 @@
+﻿@mixin animation-mixim($name, $duration,$delay,$ease: linear,$option: forwards$delay,$bezier:linear) {
+    animation: $name $duration $ease $option;
+    animation-timing-function:$bezier;
+    animation-delay: $delay;
+}
