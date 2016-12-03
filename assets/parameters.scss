@@ -1,6 +1,11 @@
-﻿$fadeInOut:1s;
-$moving-period:2s;
-$delay-words:3s;
+﻿//$fadeInOut:1s;
+$background-period:2s;
+$background-delay:3s;
+$word-period:1s;
+$word-delay:0.5s;
+$word-factor:1; ///Add to delay as 1*word-delay to delay each word 
+$time-jump:3s;
 $faster-bezier:linear;
-$time-word:2s;
-$delay-word:3s;
+
+$background-delay:$word-delay + 6*$word-factor;
+

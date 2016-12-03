@@ -2,25 +2,29 @@
 @import "./sass/mixins.scss";
 @import "./sass/palette.scss";
 @import "../../parameters.scss";
+
 .invisible {
-    opacity: 0;
+    opacity: 1;
 }
-body{
-    padding:0;
-    margin:0;
+
+body {
+    padding: 0;
+    margin: 0;
 }
+
 .container {
     position: relative;
     width: 100vw;
     height: 100vh;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
+
     #left {
         position: absolute;
         width: 100%;
         height: 100%;
         background: linear-gradient(90deg, #FF4F00, #02BADC);
-        @include animation-mixim(singleBlink,$moving-period,$delay-words/1.5,$option:infinite,$bezier:$faster-bezier)
+        @include animation-mixim(singleBlink,$background-period,$background-delay,$option:infinite,$bezier:$faster-bezier)
     }
 
     #right {
@@ -28,41 +32,72 @@ body{
         width: 100%;
         height: 100%;
         background: linear-gradient(-90deg, #FF4F00, #02BADC);
-        @include animation-mixim(singleBlink,$moving-period,$delay-words/1.5 + $moving-period/2,$option:infinite,$bezier:$faster-bezier)
+        @include animation-mixim(singleBlink,$background-period,$background-delay + $background-period/2,$option:infinite,$bezier:$faster-bezier)
     }
 
     #welcome {
         position: absolute;
-        width:100%;
+        width: 100%;
         top: 40%;
-        text-align:center;
+        text-align: center;
         @extend .color-secondary-2-0;
         font-family: Impact, Charcoal, sans-serif;
-        span{
-            display:inline-block;
+
+        span {
+            display: inline-block;
         }
+        .word{
+            /*position:relative;
+            left:200px;
+            top:200px;*/
+        }
+
         #one {
-            @include animation-mixim(makeVisibleThenJump,$time-word,$delay-word*1)
+            position:relative;
+            left:20px;
+            top:20px;
+            @include animation-mixim(makeVisible,$word-period,$word-delay + $word-factor)
         }
 
         #two {
-            @include animation-mixim(makeVisibleThenJump,$time-word,$delay-word*2)
+            @include animation-mixim(makeVisible,$word-period,$word-delay + 2*$word-factor)
         }
 
         #three {
-            @include animation-mixim(makeVisibleThenJump,$time-word,$delay-word*3)
+            @include animation-mixim(makeVisible,$word-period,$word-delay + 3*$word-factor)
         }
 
         #four {
-            @include animation-mixim(makeVisibleThenJump,$time-word,$delay-word*4)
+            @include animation-mixim(makeVisible,$word-period,$word-delay + 4*$word-factor)
         }
 
         #five {
-            @include animation-mixim(makeVisibleThenJump,$time-word,$delay-word*5)
+            @include animation-mixim(makeVisible,$word-period,$word-delay + 5*$word-factor)
         }
 
         #six {
-            @include animation-mixim(makeVisibleThenJump,$time-word,$delay-word*6)
+            @include animation-mixim(makeVisible,$word-period,$word-delay + 6*$word-factor)
         }
     }
 }
+
+.jumpNW{
+    left:0px;
+    top:0px;
+    //@include transition-mixim($time-jump)
+    transition: all 1s linear;
+}                                         
+                                          
+.jumpNE{                                  
+    @include animation-mixim(jumpNE,$time-jump)
+}                                         
+                                          
+.jumpSW{                                  
+    @include animation-mixim(jumpSW,$time-jump)
+}                                         
+                                          
+.jumpSE{                                  
+    @include animation-mixim(jumpSE,$time-jump)
+}
+
+

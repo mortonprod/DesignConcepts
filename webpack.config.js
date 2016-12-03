@@ -31,6 +31,7 @@ var config = {
     module: {
         loaders: [
             { test: /\.scss$/, loader: "style-loader!css-loader!postcss-loader!sass" },
+            { test: /\.css$/, loader: "style-loader!css-loader!postcss-loader" },
             { test: /\.tsx?$/, loader: "ts-loader" },
             {
                 test: /\.(png|ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,

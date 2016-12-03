@@ -43,6 +43,12 @@ Start sequence consists of
 * Fade to white; then show letters flashing: Now try some components?;
 * Click on component to show some example components with this style.
 
+##Unresolved issues
+
+1. How to use to add animation with js and get it to work
+   at a different time. So one animation then another
+2. Transitions need to be specified before they can be changed. So need to put left somewhere
+3.Transition don't work with animations
 
 ##Resources
 

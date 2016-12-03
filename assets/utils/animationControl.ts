@@ -8,11 +8,12 @@ export default function animationControl() {
     function changeAtEnd(animations: IAnimations) {
         var obj = document.getElementById(animations.name);
         obj.addEventListener("animationend", function () {
+            console.log("Animation end: " + animations.name);
             let animationForIteration = animations.end[animations.calls]
             if (animationForIteration !== null && typeof animationForIteration !== "undefined") {
                 for (let i = 0; i < animationForIteration.length; i++) {
                     let element = document.getElementById(animationForIteration[i].id);
-                    element.className += animationForIteration[i].id;
+                    element.className += " " + animationForIteration[i].class;
                 }
             }
             animations.calls++;

@@ -34,7 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="assets\common\ts\fade.js" />
     <Compile Include="myTypings\index.d.ts" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
@@ -43,6 +42,7 @@
     <Compile Include="postcss.config.js" />
     <Compile Include="webpack.config.js" />
     <Content Include="assets\common\sass\fade.scss" />
+    <Content Include="assets\parameters.scss" />
     <Content Include="assets\tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="sass\fadeIn.scss" />
