@@ -1,8 +1,7 @@
-﻿@import "./keyframes/fast";
-@import "./mixins/fast";
-@import "./palette/fast";
-@import "./parameters/fast";
-
+﻿@import "./sass/keyframes.scss";
+@import "./sass/mixins.scss";
+@import "./sass/palette.scss";
+@import "../../parameters.scss";
 .invisible {
     opacity: 0;
 }

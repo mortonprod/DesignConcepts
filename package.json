@@ -34,6 +34,8 @@
     "postcss-loader": "^1.1.1",
     "postcss-smart-import": "^0.6.0",
     "precss": "^1.4.0",
-    "proxy-middleware": "^0.15.0"
+    "proxy-middleware": "^0.15.0",
+    "ts-loader": "^1.2.2",
+    "typescript": "^2.0.10"
   }
 }

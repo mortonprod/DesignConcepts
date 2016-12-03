@@ -5,6 +5,9 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>designConcepts</Name>
     <RootNamespace>designConcepts</RootNamespace>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -31,22 +34,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="public\fadeOut.js" />
+    <Compile Include="assets\common\ts\fade.js" />
+    <Compile Include="myTypings\index.d.ts" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
-    <Compile Include="sass\fadeOut.js" />
-    <Compile Include="sass\fastPageOneEntry.js" />
+    <Compile Include="assets\fastPageOneEntry.js" />
     <Compile Include="postcss.config.js" />
     <Compile Include="webpack.config.js" />
+    <Content Include="assets\common\sass\fade.scss" />
+    <Content Include="assets\tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="sass\fadeIn.scss" />
-    <Content Include="sass\fast.scss" />
+    <Content Include="assets\designs\fast\fast.scss" />
     <Content Include="README.md" />
-    <Content Include="sass\palette\fast.scss" />
-    <Content Include="sass\parameters\fast.scss" />
-    <Content Include="sass\keyframes\fast.scss" />
-    <Content Include="sass\mixins\fast.scss" />
+    <Content Include="assets\designs\fast\sass\palette.scss" />
+    <Content Include="assets\designs\fast\sass\keyframes.scss" />
+    <Content Include="assets\designs\fast\sass\mixins.scss" />
     <Content Include="typings.json" />
     <Content Include="views\fast.jade" />
     <Content Include="views\index.jade" />
@@ -54,16 +58,20 @@
     <Content Include="views\error.jade" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="assets\designs\" />
+    <Folder Include="assets\common\sass\" />
+    <Folder Include="assets\common\ts\" />
+    <Folder Include="assets\designs\fast\" />
+    <Folder Include="assets\designs\fast\sass\" />
+    <Folder Include="assets\common\" />
+    <Folder Include="assets\utils\" />
     <Folder Include="bin\" />
+    <Folder Include="assets\" />
+    <Folder Include="myTypings\" />
     <Folder Include="public\" />
-    <Folder Include="public\images\" />
-    <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="sass\" />
-    <Folder Include="sass\mixins\" />
-    <Folder Include="sass\keyframes\" />
-    <Folder Include="sass\palette\" />
-    <Folder Include="sass\parameters\" />
+    <Folder Include="sass\control\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\body-parser\" />
@@ -81,6 +89,9 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\utils\animationControl.ts" />
+    <TypeScriptCompile Include="assets\designs\fast\fast.ts" />
+    <TypeScriptCompile Include="sass\control\fast.ts" />
     <TypeScriptCompile Include="typings\globals\body-parser\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\cookie-parser\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\debug\index.d.ts" />

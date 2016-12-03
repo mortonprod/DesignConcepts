@@ -11,7 +11,7 @@ if (!isProd) {
 console.log("Public path: " + publicPathFill)
 var config = {
     entry: {
-        fastOne: ['./sass/fastPageOneEntry.js'],
+        fastOne: ['./assets/fastPageOneEntry.js'],
     },
     plugins: [
         //require('postcss-smart-import')({ /* ...options */ }),

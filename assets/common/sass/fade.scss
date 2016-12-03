@@ -1,0 +1,15 @@
+﻿@import "../../parameters.scss";
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+.fadeOut{
+    animation:fadeOut forwards $fadeInOut
+}
