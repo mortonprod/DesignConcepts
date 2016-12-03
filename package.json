@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "build": "set NODE_ENV=production&&webpack",
     "start:dev": "set NODE_ENV=development&&node bin/www"
   },
   "description": "Web design concepts.",

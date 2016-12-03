@@ -22,15 +22,15 @@ if (process.env.NODE_ENV === "development") {
 
 if (process.env.NODE_ENV === "development") {
     var server = new WebpackDevServer(webpack(config), {
-        contentBase:"./public/stylesheets",
+        contentBase:"./public/",
         hot: true,
         quiet: false,
         noInfo: false,
-        publicPath: "/public/stylesheets",
+        publicPath: "/public/",
         stats: { colors: true }
     });
     server.listen(8081, "localhost", function () { });
-    app.use('/stylesheets', proxy(url.parse('http://localhost:8081/public/stylesheets')));
+    app.use('/assets', proxy(url.parse('http://localhost:8081/public/')));
 }
 
 

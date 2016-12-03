@@ -6,7 +6,7 @@ var isProd = (process.env.NODE_ENV === 'production');
 if (!isProd) {
     var publicPathFill = "/"; //If you have web dev then just put this at  base in memory and redirect with node.
 } else {
-    var publicPathFill = "./public/stylesheets";
+    var publicPathFill = "./public";
 }
 console.log("Public path: " + publicPathFill)
 var config = {

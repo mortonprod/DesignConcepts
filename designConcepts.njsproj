@@ -31,15 +31,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="public\fadeOut.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
+    <Compile Include="sass\fadeOut.js" />
     <Compile Include="sass\fastPageOneEntry.js" />
     <Compile Include="postcss.config.js" />
     <Compile Include="webpack.config.js" />
     <Content Include="package.json" />
+    <Content Include="sass\fadeIn.scss" />
     <Content Include="sass\fast.scss" />
     <Content Include="README.md" />
+    <Content Include="sass\palette\fast.scss" />
+    <Content Include="sass\parameters\fast.scss" />
+    <Content Include="sass\keyframes\fast.scss" />
+    <Content Include="sass\mixins\fast.scss" />
     <Content Include="typings.json" />
     <Content Include="views\fast.jade" />
     <Content Include="views\index.jade" />
@@ -53,6 +60,10 @@
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="sass\" />
+    <Folder Include="sass\mixins\" />
+    <Folder Include="sass\keyframes\" />
+    <Folder Include="sass\palette\" />
+    <Folder Include="sass\parameters\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\body-parser\" />
