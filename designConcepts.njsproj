@@ -41,7 +41,6 @@
     <Compile Include="assets\fastPageOneEntry.js" />
     <Compile Include="postcss.config.js" />
     <Compile Include="webpack.config.js" />
-    <Content Include="assets\common\sass\fade.scss" />
     <Content Include="assets\parameters.scss" />
     <Content Include="assets\tsconfig.json" />
     <Content Include="package.json" />
@@ -59,11 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\designs\" />
-    <Folder Include="assets\common\sass\" />
-    <Folder Include="assets\common\ts\" />
     <Folder Include="assets\designs\fast\" />
     <Folder Include="assets\designs\fast\sass\" />
-    <Folder Include="assets\common\" />
     <Folder Include="assets\utils\" />
     <Folder Include="bin\" />
     <Folder Include="assets\" />

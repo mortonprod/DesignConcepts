@@ -3,6 +3,12 @@
 Design concepts which can be used for many different projects.
 The concepts are html and css, with a vanilla javascript on the frontend and node as the backend.
 
+Animation is time based and can only be placed on a single element. 
+Wrap elements with another div if you need to add an animtion after the first. 
+
+Transformation are action based. So if you hover over an element then change some characteristics. 
+The characteristics must exist for them to be changed.
+
 ##Structure of each page
 
 * Html built with jade.
@@ -45,10 +51,13 @@ Start sequence consists of
 
 ##Unresolved issues
 
-1. How to use to add animation with js and get it to work
-   at a different time. So one animation then another
+1. How to use to add animation with js and get it to work at a different time. So one animation then another
+	* Can you just add a enclosing element and just add new animation to this.
 2. Transitions need to be specified before they can be changed. So need to put left somewhere
 3.Transition don't work with animations
+4. You can only animate block level elements
+5. Animation is applied to element applied. It is not cascaded. 
+	* So if you change opacity of div then it must be the exact div not a parent
 
 ##Resources
 

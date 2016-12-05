@@ -10,10 +10,18 @@ html
       div#left
       div#right 
       h1#welcome
-        span.word.invisible#one  Welcome
-        span.word.invisible#two  to 
-        span.word.invisible#three  the 
-        span.word.invisible#four  fast 
-        span.word.invisible#five  design 
-        span.word.invisible#six  concept
+        div#one.wrapWord
+          div.jumpNW
+            div.jumpNE
+              span.showMe  Welcome
+        div.wrapSpan
+          span.initWord#two  to 
+        div.wrapSpan
+          span.initWord#three  the 
+        div.wrapSpan
+          span.initWord#four  fast 
+        div.wrapSpan
+          span.initWord#five  design 
+        div.wrapSpan
+          span.initWord#six  concept
     script(src='assets/2.bodyBottom.js')

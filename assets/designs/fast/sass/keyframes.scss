@@ -21,13 +21,16 @@
     }
 }
 @keyframes jumpNW {
+    0%{
+        transform:translate(0px,0px);
+    }
     100%{
         transform:translate(-500px,-500px);
     }
 }
 @keyframes jumpNE {
     100%{
-        transform:translate(500px,-500px);
+        transform:translate(500px,500px);
     }
 }
 @keyframes jumpSW {

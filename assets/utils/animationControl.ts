@@ -2,22 +2,26 @@
  * @function
  * Will take an object specified by id.
  * When the animation is finished start other animations for other objects or run the same object again
+ * Remove animation from DOM so we can start again for each element
  * @param animations
  */
 export default function animationControl() {
     function changeAtEnd(animations: IAnimations) {
-        var obj = document.getElementById(animations.name);
-        obj.addEventListener("animationend", function () {
-            console.log("Animation end: " + animations.name);
-            let animationForIteration = animations.end[animations.calls]
-            if (animationForIteration !== null && typeof animationForIteration !== "undefined") {
-                for (let i = 0; i < animationForIteration.length; i++) {
-                    let element = document.getElementById(animationForIteration[i].id);
-                    element.className += " " + animationForIteration[i].class;
-                }
-            }
-            animations.calls++;
-        }, false);
+//        var obj = document.getElementById(animations.name);
+//        obj.addEventListener("animationend", function () {
+//            console.log("Animation end: " + animations.name);
+//            let animationForIteration = animations.end[animations.calls]
+//            if (animationForIteration !== null && typeof animationForIteration !== "undefined") {
+//                for (let i = 0; i < animationForIteration.length; i++) {
+//                    let element = document.getElementById(animationForIteration[i].id);
+//                    element.style.animationName = "";
+//                    element.style.webkitAnimation = "";
+//                    console.log("Class: " + animationForIteration[i].class)
+//                    element.className += " " + animationForIteration[i].class;
+//                }
+//            }
+//            animations.calls++;
+//        }, false);
     }
     /**
      * Add click event handler to className which adds css to html tag passed as argument 

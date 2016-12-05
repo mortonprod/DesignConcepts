@@ -3,9 +3,6 @@
 @import "./sass/palette.scss";
 @import "../../parameters.scss";
 
-.invisible {
-    opacity: 1;
-}
 
 body {
     padding: 0;
@@ -46,58 +43,78 @@ body {
         span {
             display: inline-block;
         }
-        .word{
-            /*position:relative;
-            left:200px;
-            top:200px;*/
+        /*All element under this should have these properties*/
+        .wrapWord {
+            * {
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+            }
+            span {
+                opacity:0;
+            }
         }
 
         #one {
-            position:relative;
-            left:20px;
-            top:20px;
-            @include animation-mixim(makeVisible,$word-period,$word-delay + $word-factor)
-        }
+            .jumpNW {
+                @include animation-mixim(jumpNW,$time-jump,$delay:3s)
+            }
 
-        #two {
-            @include animation-mixim(makeVisible,$word-period,$word-delay + 2*$word-factor)
-        }
-
-        #three {
-            @include animation-mixim(makeVisible,$word-period,$word-delay + 3*$word-factor)
-        }
-
-        #four {
-            @include animation-mixim(makeVisible,$word-period,$word-delay + 4*$word-factor)
-        }
-
-        #five {
-            @include animation-mixim(makeVisible,$word-period,$word-delay + 5*$word-factor)
-        }
-
-        #six {
-            @include animation-mixim(makeVisible,$word-period,$word-delay + 6*$word-factor)
+            .jumpNE {
+                @include animation-mixim(jumpNE,$time-jump,$delay:5s)
+            }
+            .showMe{
+                @include animation-mixim(makeVisible,$word-period,1s)
+            }
         }
     }
 }
 
-.jumpNW{
-    left:0px;
-    top:0px;
-    //@include transition-mixim($time-jump)
-    transition: all 1s linear;
-}                                         
-                                          
-.jumpNE{                                  
-    @include animation-mixim(jumpNE,$time-jump)
-}                                         
-                                          
-.jumpSW{                                  
-    @include animation-mixim(jumpSW,$time-jump)
-}                                         
-                                          
-.jumpSE{                                  
-    @include animation-mixim(jumpSE,$time-jump)
-}
+
+//        .jumpNW {
+//            @include animation-mixim(jumpNW,$time-jump,$delay:5s)
+//        }
+//
+//        .jumpNE {
+//            @include animation-mixim(jumpNE,$time-jump)
+//        }
+//
+//        .jumpSW {
+//            @include animation-mixim(jumpSW,$time-jump)
+//        }
+//
+//        .jumpSE {
+//            @include animation-mixim(jumpSE,$time-jump)
+//        }
 
 
+//        .wrapWordAnimation {
+//            .initWord {
+//                opacity: 0;
+//
+//                #one {
+//                    @include animation-mixim(makeVisible,$word-period,$word-delay + $word-factor)
+//                }
+//
+//                #two {
+//                    @include animation-mixim(makeVisible,$word-period,$word-delay + 2*$word-factor)
+//                }
+//
+//                #three {
+//                    @include animation-mixim(makeVisible,$word-period,$word-delay + 3*$word-factor)
+//                }
+//
+//                #four {
+//                    @include animation-mixim(makeVisible,$word-period,$word-delay + 4*$word-factor)
+//                }
+//
+//                #five {
+//                    @include animation-mixim(makeVisible,$word-period,$word-delay + 5*$word-factor)
+//                }
+//
+//                #six {
+//                    @include animation-mixim(makeVisible,$word-period,$word-delay + 6*$word-factor)
+//                }
+//            }
+//        }
+//
