@@ -2,8 +2,16 @@
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req, res) {
+router.get('/fast', function (req, res) {
     res.render('fast', { title: 'Express' });
 });
+router.get('/blackwhite', function (req, res) {
+    res.render('blackWhite', { title: 'Express' });
+});
+router.get('/', function (req, res) {
+    res.render('blackWhite', { title: 'Express' });
+});
+
+
 
 module.exports = router;

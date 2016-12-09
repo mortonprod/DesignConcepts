@@ -1,0 +1,116 @@
+﻿@import "../../utils/mixins.scss";
+$background-period: 1s;
+$background-delay: 2s;
+
+@keyframes singleBlink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+
+    span {
+        font-family: 'Aref Ruqaa', serif;
+        font-weight: bolder;
+        font-size: 30px;
+    }
+
+    #left {
+        position: relative;
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+
+        div.white {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+
+            span {
+                position: relative;
+                left: 40%;
+                top: 40%;
+                color: black;
+            }
+
+            @include animation-mixim(singleBlink,$background-period,$background-delay,$option:infinite)
+        }
+
+        div.black {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: black;
+
+            span {
+                position: relative;
+                left: 40%;
+                top: 40%;
+                color: white;
+            }
+
+            @include animation-mixim(singleBlink,$background-period,$background-delay + $background-period/2,$option:infinite)
+        }
+    }
+
+    #right {
+        position: relative;
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+
+        div.white {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+
+            span {
+                position: relative;
+                left: 40%;
+                top: 40%;
+                color: black;
+            }
+
+            @include animation-mixim(singleBlink,$background-period + $background-period/2,$background-delay,$option:infinite)
+        }
+
+        div.black {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: black;
+
+            span {
+                position: relative;
+                left: 40%;
+                top: 40%;
+                color: white;
+            }
+
+            @include animation-mixim(singleBlink,$background-period + $background-period/2,$background-delay + $background-period/2,$option:infinite)
+        }
+    }
+}

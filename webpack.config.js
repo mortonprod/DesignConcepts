@@ -12,6 +12,7 @@ console.log("Public path: " + publicPathFill)
 var config = {
     entry: {
         fastOne: ['./assets/fastPageOneEntry.js'],
+        blackWhiteOne: ['./assets/blackWhiteOneEntry.js'],
     },
     plugins: [
         //require('postcss-smart-import')({ /* ...options */ }),

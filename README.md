@@ -1,53 +1,46 @@
 ﻿# Design Concepts
 
 Design concepts which can be used for many different projects.
-The concepts are html and css, with a vanilla javascript on the frontend and node as the backend.
+The concepts are html and css (sass) with vanilla javascript (typescript) on the frontend and node as the backend.
+
+##Animation concepts with css 
 
 Animation is time based and can only be placed on a single element. 
 Wrap elements with another div if you need to add an animtion after the first. 
+Note wrapping can only change the element you add the class to. 
+So you can't change the color, size etc of span element(or any element with content) of interest only the position and 
+scale of the enclosing container. Also note you can only add one animation to any element at a time.
 
-Transformation are action based. So if you hover over an element then change some characteristics. 
+Transformations are action based. So if you hover over an element then change some characteristics. 
 The characteristics must exist for them to be changed.
 
-##Structure of each page
+##Structure of each concepts
 
-* Html built with jade.
-* Initial css and animations run on startup.
-* JS changes styles on each elements animation end or events from user.
+Taking into account the limitations of css animations and transformations a simple setup is applied for each page.
 
-##Folder structure
+You have a single file for
 
-* Assets: Contains entry chunks and common parameters
-* Designs: A folder for each design 
-* Design(Example fast): Contains all information to run animations added to jade template. 
+* jade
+* css
+* js
 
-The large number of animations is split into parts; when one ends another begins.
-This allows us to create sensible animation segments which can be reused.  
+which will be loaded for each page. A animation class called finish exists on each page. This will trigger end animation 
+event handler which will fade out page ready for next page load.
 
 
-##Concepts
+##Build methodology 
 
-Each concept is a theme which should have consistent 
+It is quite easy to get lost in a sea of html/css. So the following process was followed to create each Animation
 
-* Colour: Chose a palette and be consistent. 
-* Interactions: The effect for a particular interaction should be predictable. 
+1. Build all the static styles. The stationary pages which should come together in the end.
+	* Should look good in mobile or desktop screen size.
+2. Write down what you want this static page to do
+	* This allows to decide if you need a transformation(for actions) or animations
+	* Do you need to add multiple animations to the same element so new page reload or can you attach this to an enclosing element.
+3. Write animation for each page.
+4. Link pages.
 
-The theme is the adjactive not what it is.
-For example, you can make a welcome page or blog from the fast theme. 
-
-###Fast. 
-
-* Colour: Vibrant triad with red as primary.
-* Interactions: 
-
-Start sequence consists of 
-* Letters appear slowly: "Welcome to the fast design concept" 
-* Fade away letters
-* Fade in: 1,2,3 
-* Show motion through color change 
-* Through some words(parts from websites) flying through air
-* Fade to white; then show letters flashing: Now try some components?;
-* Click on component to show some example components with this style.
+## BlackWhite
 
 ##Unresolved issues
 
@@ -58,6 +51,7 @@ Start sequence consists of
 4. You can only animate block level elements
 5. Animation is applied to element applied. It is not cascaded. 
 	* So if you change opacity of div then it must be the exact div not a parent
+	6. Sell this as wix/wordpress plugin
 
 ##Resources
 
