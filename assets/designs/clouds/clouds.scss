@@ -1,0 +1,141 @@
+﻿@import "../../utils/mixins.scss";
+$background-period: 1s;
+$background-delay: 2s;
+
+@keyframes sunMoves {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateY(1000px);
+    }
+}
+
+@keyframes left {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(-500px);
+    }
+}
+
+@keyframes right {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(500px);
+    }
+}
+
+body {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background: rgb(128,162,205);
+    height: auto;
+    width: 100vw;
+
+    .sunMoves {
+        animation: sunMoves 5s forwards;
+    }
+
+    #sun {
+        position:relative;
+        margin-left: 45%;
+        margin-right: 45%;
+        padding: 0;
+        width: 10%;
+        height: auto;
+        opacity:0;
+        display: block;
+        z-index:10;
+    }
+
+
+    #name {
+        position: relative;
+        height: auto;
+        width: 100vw;
+
+        #canvas {
+            margin-left: 25%; //Canvas a bit to the left
+            margin-right: 25%;
+            padding: 0;
+            width: 50%;
+            height: auto;
+            top: 50px;
+            left: 25%;
+        }
+
+        #expose1 {
+            position: absolute;
+            top: 0;
+            width: 40%;
+            height: auto;
+            left: 5%;
+            animation: left 30s infinite;
+        }
+
+        #expose2 {
+            position: absolute;
+            width: 40%;
+            height: auto;
+            left: 55%;
+            animation: right 40s infinite;
+        }
+    }
+
+    #dot {
+        position: relative;
+        height: auto;
+        width: 100vw;
+    }
+}
+
+#sky {
+    position: relative;
+    top: 20%;
+    width: 100%;
+    height: auto;
+}
+
+#cloud2 {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    top: 250px;
+    left: 90%;
+    animation: left 30s infinite;
+}
+
+#cloud3 {
+    position: absolute;
+    width: 40%;
+    height: auto;
+    top: 350px;
+    left: 40%;
+    animation: right 50s infinite;
+}
+
+#cloud4 {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    top: 350px;
+    left: 15%;
+    animation: left 30s infinite;
+}
+
+#cloud5 {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    top: 125px;
+    left: 15%;
+    animation: right 30s infinite;
+}

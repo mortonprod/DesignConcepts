@@ -9,7 +9,11 @@ router.get('/blackwhite', function (req, res) {
     res.render('blackWhite', { title: 'Express' });
 });
 router.get('/', function (req, res) {
-    res.render('blackWhite', { title: 'Express' });
+    res.render('clouds', { title: 'Express' });
+});
+
+router.get('/', function (req, res) {
+    res.render('clouds', { title: 'Express' });
 });
 
 

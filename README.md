@@ -3,6 +3,9 @@
 Design concepts which can be used for many different projects.
 The concepts are html and css (sass) with vanilla javascript (typescript) on the frontend and node as the backend.
 
+This uses canvases for complex pixel by pixel animation. Does not create a dom but interacts with 
+pixels individually.  
+
 ##Animation concepts with css 
 
 Animation is time based and can only be placed on a single element. 
@@ -42,6 +45,25 @@ It is quite easy to get lost in a sea of html/css. So the following process was 
 
 ## BlackWhite
 
+##Clouds
+
+"How I which software was made"
+
+Falling from sky. 
+
+Can easily use resource from internet can add to it 
+with same colour using google extension.
+
+Idea is to follow dropped object.
+
+##Dots. 
+
+Place dots at random locations with canvas using JS.
+###Aditional
+
+Use wireless IpV4 to get server on computer to phone 
+
+
 ##Unresolved issues
 
 1. How to use to add animation with js and get it to work at a different time. So one animation then another
@@ -52,7 +74,14 @@ It is quite easy to get lost in a sea of html/css. So the following process was 
 5. Animation is applied to element applied. It is not cascaded. 
 	* So if you change opacity of div then it must be the exact div not a parent
 	6. Sell this as wix/wordpress plugin
-
+6. overflow:hidden work for clouds but not when resized
+7. Can't scroll easily with pure js. Need to use jquery. But no event for motion so need to poll with settimeInterval
+8> can't use next tick to check in browser?
+9. If you don't know the height of div since you want width=fullScreen and this depends ons device then you don't have pixels or percentage.
+Do you need js for this or use css somehow?
+10. Cna't use transform:"translateY(100) with jquery
 ##Resources
 
 [Palette] http://paletton.com/
+[Canvas] https://www.sitepoint.com/canvas-vs-svg-choosing-the-right-tool-for-the-job/
+[scroll] https://css-tricks.com/snippets/jquery/smooth-scrolling/

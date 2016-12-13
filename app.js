@@ -17,6 +17,8 @@ if (process.env.NODE_ENV === "development") {
     config.plugins.push(new webpack.HotModuleReplacementPlugin());
     config.entry.fastOne.unshift("webpack-dev-server/client?http://localhost:8081/", "webpack/hot/dev-server");
     config.entry.blackWhiteOne.unshift("webpack-dev-server/client?http://localhost:8081/", "webpack/hot/dev-server");
+    config.entry.cloudsOne.unshift("webpack-dev-server/client?http://localhost:8081/", "webpack/hot/dev-server");
+
     var proxy = require('proxy-middleware');
     var url = require('url');
 }

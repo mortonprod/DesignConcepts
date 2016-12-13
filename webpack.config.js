@@ -13,6 +13,7 @@ var config = {
     entry: {
         fastOne: ['./assets/fastPageOneEntry.js'],
         blackWhiteOne: ['./assets/blackWhiteOneEntry.js'],
+        cloudsOne: ['./assets/cloudsOneEntry.js'],
     },
     plugins: [
         //require('postcss-smart-import')({ /* ...options */ }),

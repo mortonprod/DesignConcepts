@@ -34,6 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="assets\cloudsOneEntry.js" />
+    <Compile Include="assets\blackWhiteOneEntry.js" />
     <Compile Include="myTypings\index.d.ts" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
@@ -41,7 +43,9 @@
     <Compile Include="assets\fastPageOneEntry.js" />
     <Compile Include="postcss.config.js" />
     <Compile Include="webpack.config.js" />
-    <Content Include="assets\parameters.scss" />
+    <Content Include="assets\designs\clouds\clouds.scss" />
+    <Content Include="assets\designs\blackWhite\blackWhite.scss" />
+    <Content Include="assets\designs\fast\fast - Copy.scss" />
     <Content Include="assets\tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="sass\fadeIn.scss" />
@@ -49,8 +53,10 @@
     <Content Include="README.md" />
     <Content Include="assets\designs\fast\sass\palette.scss" />
     <Content Include="assets\designs\fast\sass\keyframes.scss" />
-    <Content Include="assets\designs\fast\sass\mixins.scss" />
+    <Content Include="assets\utils\mixins.scss" />
     <Content Include="typings.json" />
+    <Content Include="views\clouds.jade" />
+    <Content Include="views\blackWhite.jade" />
     <Content Include="views\fast.jade" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
@@ -58,8 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\designs\" />
+    <Folder Include="assets\designs\clouds\" />
     <Folder Include="assets\designs\fast\" />
     <Folder Include="assets\designs\fast\sass\" />
+    <Folder Include="assets\designs\blackWhite\" />
+    <Folder Include="public\png\" />
+    <Folder Include="public\svg\" />
     <Folder Include="assets\utils\" />
     <Folder Include="bin\" />
     <Folder Include="assets\" />
@@ -85,6 +95,8 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\designs\clouds\clouds.ts" />
+    <TypeScriptCompile Include="assets\designs\blackWhite\blackWhite.ts" />
     <TypeScriptCompile Include="assets\utils\animationControl.ts" />
     <TypeScriptCompile Include="assets\designs\fast\fast.ts" />
     <TypeScriptCompile Include="sass\control\fast.ts" />
