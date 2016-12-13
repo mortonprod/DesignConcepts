@@ -4,7 +4,8 @@
   ],
   "include": [
     "./utils/animationControl.ts",
-    "../myTypings/index.d.ts"
+    "../myTypings/index.d.ts",
+    "../typings/index.d.ts"
   ],
 
   "compilerOptions": {

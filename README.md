@@ -56,9 +56,17 @@ with same colour using google extension.
 
 Idea is to follow dropped object.
 
-##Dots. 
+##Dots
 
-Place dots at random locations with canvas using JS.
+Inject dots from some side. The dots should act as if in a magnetic field and rotate round origin of canvas.
+```
+F=qVxB
+```
+V is the ball direction and B is out of the page.
+
+
+This uses canvas which will draw background dots filling up all the background 
+ 
 ###Aditional
 
 Use wireless IpV4 to get server on computer to phone 
@@ -80,6 +88,7 @@ Use wireless IpV4 to get server on computer to phone
 9. If you don't know the height of div since you want width=fullScreen and this depends ons device then you don't have pixels or percentage.
 Do you need js for this or use css somehow?
 10. Cna't use transform:"translateY(100) with jquery
+11.Set parameter of function using name? Not working
 ##Resources
 
 [Palette] http://paletton.com/

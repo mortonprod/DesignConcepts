@@ -14,6 +14,7 @@ var config = {
         fastOne: ['./assets/fastPageOneEntry.js'],
         blackWhiteOne: ['./assets/blackWhiteOneEntry.js'],
         cloudsOne: ['./assets/cloudsOneEntry.js'],
+        dotsOne: ['./assets/dotsOneEntry.js'],
     },
     plugins: [
         //require('postcss-smart-import')({ /* ...options */ }),

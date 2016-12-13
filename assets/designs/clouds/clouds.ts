@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿import * as $ from "jquery";
+$(document).ready(function () {
     let canvas = document.querySelector("canvas");
     var ctx = document.querySelector("canvas").getContext("2d"),
         dashLen = 220, dashOffset = dashLen, speed = 10,
@@ -19,7 +20,7 @@
         console.log("Print: " + canvas.width + " " + window.innerWidth);
         ctx.clearRect(x, 0, 60, 150);//Always clear any other pixel changes before drawing again.
         ctx.setLineDash([dashLen - dashOffset, dashOffset - speed]); // create a long dash mask
-        console.log("setlineDash: " txt[i] + "  " + (dashLen - dashOffset) + "   " + (dashOffset - speed))
+        console.log("setlineDash: " + txt[i] + "  " + (dashLen - dashOffset) + "   " + (dashOffset - speed))
         dashOffset -= speed;                                         // reduce dash length
         ctx.strokeText(txt[i], x, 90);                               // stroke letter
 
@@ -61,7 +62,8 @@
 
     (function drawDots() {
         let canvasDot = document.querySelector("dot");
-        let ctxDot = document.getElementById("dot").getContext("2d");//Must cast to canvas
+        let can = <HTMLCanvasElement> document.getElementById("dot");
+        let ctxDot = can.getContext("2d");//Must cast to canvas
         ctxDot.strokeStyle = ctxDot.fillStyle = "green";
         ctxDot.clearRect(x, 0, 60, 150);//Always clear any other pixel changes before drawing again.
         ctxDot.setLineDash([5, 15]); //5 solid 15 blank
