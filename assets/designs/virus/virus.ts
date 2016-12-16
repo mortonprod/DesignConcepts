@@ -12,8 +12,8 @@ interface IConfig {
     strokeStyle: string,
     lineWidth: number,
     lineJoin: string,
-    globalAlpha: number
-
+    globalAlpha: number,
+    numPixelPerFrame:number
 }
 window.onload = () => {
     let canvas = document.querySelector("canvas");
@@ -24,15 +24,16 @@ window.onload = () => {
         strokeStyle: "#1f2f90",
         lineWidth: 2,
         lineJoin: "round",
-        globalAlpha: 1
+        globalAlpha: 1,
+        numPixelPerFrame:5
     }
     seedBlackImage(canvas, config);
 }
 
 function seedBlackImage(canvas: HTMLCanvasElement, config: IConfig) {
-    let numPixelPerFrame = 5;
+    let numPixelPerFrame = config.numPixelPerFrame;
     var ctx = canvas.getContext("2d");
-    let fontSize = 20;
+    let fontSize = 200;
     ctx.lineWidth = config.lineWidth;
     ctx.lineJoin = config.lineJoin;
     ctx.globalAlpha = config.globalAlpha;
@@ -46,7 +47,7 @@ function seedBlackImage(canvas: HTMLCanvasElement, config: IConfig) {
         let x = 0;
         for (let i = 0; i < config.txt.length; i++) {
             console.log("Text: " + config.txt[i])
-            ctx.fillText(config.txt[i], x, 30);
+            ctx.fillText(config.txt[i], x, 100);
             x += ctx.measureText(config.txt[i]).width + ctx.lineWidth;
         }
         //get pixel information after drawing.
@@ -96,6 +97,8 @@ function seedBlackImage(canvas: HTMLCanvasElement, config: IConfig) {
             }
             if (total < canvas.width * canvas.height) {
                 requestAnimationFrame(frame);
+            } else {
+                console.log("end");
             }
         }
         frame();
