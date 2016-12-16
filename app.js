@@ -19,6 +19,8 @@ if (process.env.NODE_ENV === "development") {
     config.entry.blackWhiteOne.unshift("webpack-dev-server/client?http://localhost:8081/", "webpack/hot/dev-server");
     config.entry.cloudsOne.unshift("webpack-dev-server/client?http://localhost:8081/", "webpack/hot/dev-server");
     config.entry.dotsOne.unshift("webpack-dev-server/client?http://localhost:8081/", "webpack/hot/dev-server");
+    config.entry.virusOne.unshift("webpack-dev-server/client?http://localhost:8081/", "webpack/hot/dev-server");
+
 
     var proxy = require('proxy-middleware');
     var url = require('url');

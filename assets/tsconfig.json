@@ -3,6 +3,9 @@
     "./designs/fast/fast.ts"
   ],
   "include": [
+    "./designs/dots/dots.ts",
+    "./designs/dots/state.ts",
+    "./designs/dots/system.ts",
     "./utils/animationControl.ts",
     "../myTypings/index.d.ts",
     "../typings/index.d.ts"

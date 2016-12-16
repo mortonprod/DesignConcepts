@@ -15,6 +15,7 @@ var config = {
         blackWhiteOne: ['./assets/blackWhiteOneEntry.js'],
         cloudsOne: ['./assets/cloudsOneEntry.js'],
         dotsOne: ['./assets/dotsOneEntry.js'],
+        virusOne: ['./assets/virusOneEntry.js']
     },
     plugins: [
         //require('postcss-smart-import')({ /* ...options */ }),

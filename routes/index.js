@@ -9,7 +9,7 @@ router.get('/blackwhite', function (req, res) {
     res.render('blackWhite', { title: 'Express' });
 });
 router.get('/', function (req, res) {
-    res.render('dots', { title: 'Express' });
+    res.render('virus', { title: 'Express' });
 });
 
 

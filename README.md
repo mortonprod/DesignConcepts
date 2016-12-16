@@ -1,5 +1,27 @@
 ﻿# Design Concepts
 
+#What do people want to see.
+Taking away content. People want to see understandable interfaces,(what the buttons mean),
+but they also want complex styles.  When you think about it complexity is king. 
+But how do you convey complexity to the user. You can add this in many ways
+
+1. Static css 
+2. Transformations through actions
+3. Animations with respect to time for each element
+4. Pictures
+5. Videos
+6. Manipulation of the underlying pixels
+
+The first three interact with a DOM overhead and the last interact with 
+the underlying pixels. Note interaction is only permitted with the last entry;
+Video and pictures are static in nature. You can either calculate the drawing 
+on the browser or on the server. Either way you must have all pixels for each
+frame to render it to the user.
+
+
+
+ 
+
 Design concepts which can be used for many different projects.
 The concepts are html and css (sass) with vanilla javascript (typescript) on the frontend and node as the backend.
 
@@ -56,21 +78,84 @@ with same colour using google extension.
 
 Idea is to follow dropped object.
 
+
 ##Dots
 
-Inject dots from some side. The dots should act as if in a magnetic field and rotate round origin of canvas.
+A simple physics system with dots in box with magnetic field. The dots should represent a topic. 
+
+###Physics Parameters
+1. Magnetic field.
+2. For each particle
+	* Charge
+	* Mass.
+	* Initial velocity.
+	* Volume
+
+###Algorithm
+
+Note the division of concerns. The objects store parameters and the parameters draw in someway for each object.
+The simulation checks for conditions on the objects and then updates there parameter(state) as need be. 
+
+Each object is a class which contains
+1. All it's physical attributes as parameters. Basically the information needed to do the simulation. No drawing information.
+	* Config
+2. Now map these parameters to drawing something on the screen for this object. 
+	* Draw()
+
+The simulation only ever changes the physical parameters which in turn changes the drawing.
+Coordinates X/Y/Z change with particle motion with magnetic field and interactions. Change in Z denotes as change in dot size.
+Calculation before rendering 
+1. Draw state
+2. Move to next state given forces.
+3. Check if two dots are touching. If touching then update momentum state
+4. Check if touching container. If touching update momentum state.  
+
+###Code
+
+1. Physics state objects
+	* Contain parameters of each object to describe simulation
+2. Draw functions 
+	* Takes state draws something. 
+3. Simulation function
+	* Takes all particle states and checks for conditions.
+	* If condition met then update state in config.	
+
+###Physics
+The state can be changed with different processes. Each one you update the state which updates the drawing.
+####Magnetic fields
 ```
 F=qVxB
 ```
-V is the ball direction and B is out of the page.
+####Collisions
+
+The momentum along the line connecting the two dots centres is the only momentum which can be transfered.
+You can also think of the balls spinning with angular momentum at the surface.
+
+Work in COM frame with momentum cancelling along the x-axis. In this frame the momentum of the two particles must be equal.
+m_{total}^{1}v_{total}^{1} = -m_{total}^{2}v_{total}^{2} (Rearrange for v1)
+
+Using kinetic energy relation with v1 deduce v2 and then v1. v1 and v2 are the velocities in the COM frame.
+You need to work out how to get to COM frame and then reverse it on v1 and v2 to get the velocities in your frame. 
 
 
-This uses canvas which will draw background dots filling up all the background 
+Work out total momentum and therefore COM velocity.
+Transforms
+1. Rotate so velocity is in x direction.
+
+###Virus
+
+Take canvas made up of black text and white background. Get black pixels. 
+Start with blank page and then seed some pixels and let them expand to cover the 
+full word. 
+
+
  
 ###Aditional
 
 Use wireless IpV4 to get server on computer to phone 
 
+Perfect example of type usefulness is IVector3d so you can do manipulations with only objects of this type.
+If you pass the wrong type then you get told right away.
 
 ##Unresolved issues
 
@@ -89,8 +174,10 @@ Use wireless IpV4 to get server on computer to phone
 Do you need js for this or use css somehow?
 10. Cna't use transform:"translateY(100) with jquery
 11.Set parameter of function using name? Not working
+12.Passing config is this a good idea?
 ##Resources
 
 [Palette] http://paletton.com/
 [Canvas] https://www.sitepoint.com/canvas-vs-svg-choosing-the-right-tool-for-the-job/
 [scroll] https://css-tricks.com/snippets/jquery/smooth-scrolling/
+[Basic Physics] https://en.wikipedia.org/wiki/Elastic_collision

@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="assets\dotsOneEntry.js" />
     <Compile Include="assets\cloudsOneEntry.js" />
     <Compile Include="assets\blackWhiteOneEntry.js" />
     <Compile Include="myTypings\index.d.ts" />
@@ -43,6 +44,7 @@
     <Compile Include="assets\fastPageOneEntry.js" />
     <Compile Include="postcss.config.js" />
     <Compile Include="webpack.config.js" />
+    <Content Include="assets\designs\dots\dots.scss" />
     <Content Include="assets\designs\clouds\clouds.scss" />
     <Content Include="assets\designs\blackWhite\blackWhite.scss" />
     <Content Include="assets\designs\fast\fast - Copy.scss" />
@@ -55,6 +57,9 @@
     <Content Include="assets\designs\fast\sass\keyframes.scss" />
     <Content Include="assets\utils\mixins.scss" />
     <Content Include="typings.json" />
+    <Content Include="typings\globals\jquery\typings.json" />
+    <Content Include="typings\globals\mathjs\typings.json" />
+    <Content Include="views\dots.jade" />
     <Content Include="views\clouds.jade" />
     <Content Include="views\blackWhite.jade" />
     <Content Include="views\fast.jade" />
@@ -64,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\designs\" />
+    <Folder Include="assets\designs\dots\" />
     <Folder Include="assets\designs\clouds\" />
     <Folder Include="assets\designs\fast\" />
     <Folder Include="assets\designs\fast\sass\" />
@@ -86,6 +92,8 @@
     <Folder Include="typings\globals\express-serve-static-core\" />
     <Folder Include="typings\globals\express\" />
     <Folder Include="typings\globals\jade\" />
+    <Folder Include="typings\globals\jquery\" />
+    <Folder Include="typings\globals\mathjs\" />
     <Folder Include="typings\globals\mime\" />
     <Folder Include="typings\globals\morgan\" />
     <Folder Include="typings\globals\node\" />
@@ -95,8 +103,11 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\designs\dots\dots.ts" />
     <TypeScriptCompile Include="assets\designs\clouds\clouds.ts" />
     <TypeScriptCompile Include="assets\designs\blackWhite\blackWhite.ts" />
+    <TypeScriptCompile Include="assets\designs\dots\state.ts" />
+    <TypeScriptCompile Include="assets\designs\dots\system.ts" />
     <TypeScriptCompile Include="assets\utils\animationControl.ts" />
     <TypeScriptCompile Include="assets\designs\fast\fast.ts" />
     <TypeScriptCompile Include="sass\control\fast.ts" />
@@ -106,6 +117,8 @@
     <TypeScriptCompile Include="typings\globals\express-serve-static-core\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\express\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jade\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\jquery\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\mathjs\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\mime\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\morgan\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
