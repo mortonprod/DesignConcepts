@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="assets\virusOneEntry.js" />
     <Compile Include="assets\dotsOneEntry.js" />
     <Compile Include="assets\cloudsOneEntry.js" />
     <Compile Include="assets\blackWhiteOneEntry.js" />
@@ -44,6 +45,7 @@
     <Compile Include="assets\fastPageOneEntry.js" />
     <Compile Include="postcss.config.js" />
     <Compile Include="webpack.config.js" />
+    <Content Include="assets\designs\virus\virus.scss" />
     <Content Include="assets\designs\dots\dots.scss" />
     <Content Include="assets\designs\clouds\clouds.scss" />
     <Content Include="assets\designs\blackWhite\blackWhite.scss" />
@@ -59,6 +61,7 @@
     <Content Include="typings.json" />
     <Content Include="typings\globals\jquery\typings.json" />
     <Content Include="typings\globals\mathjs\typings.json" />
+    <Content Include="views\virus.jade" />
     <Content Include="views\dots.jade" />
     <Content Include="views\clouds.jade" />
     <Content Include="views\blackWhite.jade" />
@@ -69,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\designs\" />
+    <Folder Include="assets\designs\virus\" />
     <Folder Include="assets\designs\dots\" />
     <Folder Include="assets\designs\clouds\" />
     <Folder Include="assets\designs\fast\" />
@@ -103,6 +107,7 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\designs\virus\virus.ts" />
     <TypeScriptCompile Include="assets\designs\dots\dots.ts" />
     <TypeScriptCompile Include="assets\designs\clouds\clouds.ts" />
     <TypeScriptCompile Include="assets\designs\blackWhite\blackWhite.ts" />
