@@ -15,7 +15,8 @@ interface IConfig {
     globalAlpha: number,
     numPixelPerFrame: number
     textHeight: number,
-    fontSize: number
+    fontSize: number,
+    colours: Array<Array<number>>
 }
 window.onload = () => {
     let canvas = document.querySelector("canvas");
@@ -29,7 +30,14 @@ window.onload = () => {
         globalAlpha: 1,
         numPixelPerFrame: 50,
         textHeight: 200,
-        fontSize:10
+        fontSize: 10,
+        colours: [
+            [255, 0, 0, 255],
+            [0, 255, 0, 255],
+            [0, 0, 255, 255],
+            [255, 255, 0, 255],
+            [255, 0, 255, 255],
+        ]
     }
     seedBlackImage(canvas, config);
 }
@@ -41,10 +49,10 @@ function seedBlackImage(canvas: HTMLCanvasElement, config: IConfig) {
     ctx.globalAlpha = config.globalAlpha;
     ctx.strokeStyle = config.strokeStyle;
     ctx.fillStyle = config.fillStyle
-    fontResize(ctx,canvas.width, config.txt, config.fontSize);
-    let pix = getPixelData(ctx, config.txt,canvas.width,canvas.height, config.textHeight);
+    fontResize(ctx, canvas.width, config.txt, config.fontSize);
+    let pix = getPixelData(ctx, config.txt, canvas.width, canvas.height, config.textHeight);
     let states = createPixelMatrix(pix, canvas.width, canvas.height);
-    runWeb(ctx, states,config.numPixelPerFrame);
+    runWeb(ctx, states, config.numPixelPerFrame, config.colours);
     //run(ctx, obj.textStates, obj.count, config.numPixelPerFrame);
 }
 function getTextPixelNumber(states) {
@@ -59,29 +67,37 @@ function getTextPixelNumber(states) {
     return textNum;
 }
 
-function runWeb(ctx, states: Array<Array<IStateVirus>>, numPixelPerFrame) {
+function runWeb(ctx, states: Array<Array<IStateVirus>>, numPixelPerFrame, colours) {
     let textNum = getTextPixelNumber(states);
     let total = 0;
     let pi = 0;
+    let icol = 0;
     let record = []
     while (pi < numPixelPerFrame) {
+        let col = colours[icol];
         let x = randomIntFromInterval(0, states.length - 1);
         let y = randomIntFromInterval(0, states[x].length - 1);
         if (states[x][y].isText && !states[x][y].isInfected) {
-            createImage(ctx, states[x][y].x, states[x][y].y, 1, 1, 255, 0, 255, 255);
+            createImage(ctx, states[x][y].x, states[x][y].y, 1, 1, col[0], col[1], col[2], col[3]);
             states[x][y].isInfected = true;
-            record.push({x:x,y:y});
+            record.push({ x: x, y: y, colour: colours[icol] });
             pi++
             total++;
+        }
+        if (icol === colours.length - 1) {
+            icol = 0;
+        } else {
+            icol++;
         }
     }
     frame();
     function frame() {
         pi = 0;
         for (let rec of record) {
+            let col = rec.colour;
             //leftRightUpDown
-            let rand =  randomIntFromInterval(0, 3);
-            let x = 0, y = 0; 
+            let rand = randomIntFromInterval(0, 3);
+            let x = 0, y = 0;
             if (rand === 0) {
                 x = rec.x + 1
             } else if (rand === 1) {
@@ -98,9 +114,9 @@ function runWeb(ctx, states: Array<Array<IStateVirus>>, numPixelPerFrame) {
                     continue;
                 }
                 if (states[x][rec.y].isText && !states[x][rec.y].isInfected) {
-                    createImage(ctx, x, rec.y, 1, 1, 255, 0, 255, 255);
+                    createImage(ctx, x, rec.y, 1, 1, col[0], col[1], col[2], col[3]);
                     states[x][rec.y].isInfected = true;
-                    record.push({ x: x, y: rec.y });
+                    record.push({ x: x, y: rec.y, colour: rec.colour });
                     total++;
                     pi++;
                 }
@@ -109,9 +125,9 @@ function runWeb(ctx, states: Array<Array<IStateVirus>>, numPixelPerFrame) {
                     continue;
                 }
                 if (states[rec.x][y].isText && !states[rec.x][y].isInfected) {
-                    createImage(ctx, rec.x, y, 1, 1, 255, 0, 255, 255);
+                    createImage(ctx, rec.x, y, 1, 1, col[0], col[1], col[2], col[3]);
                     states[rec.x][y].isInfected = true;
-                    record.push({ x: rec.x, y: y });
+                    record.push({ x: rec.x, y: y, colour: rec.colour });
                     total++
                     pi++;
                 }
@@ -130,7 +146,7 @@ function runWeb(ctx, states: Array<Array<IStateVirus>>, numPixelPerFrame) {
 }
 
 
-function run(ctx,textStates, count,numPixelPerFrame) {
+function run(ctx, textStates, count, numPixelPerFrame) {
     let total = 0;
     frame();
     function frame() {
@@ -140,7 +156,7 @@ function run(ctx,textStates, count,numPixelPerFrame) {
             let x = randomIntFromInterval(0, textStates.length - 1);
             let y = randomIntFromInterval(0, textStates[x].length - 1);
             if (textStates[x][y].isText && !textStates[x][y].isInfected) {
-                createImage(ctx,textStates[x][y].x, textStates[x][y].y, 1, 1, 255, 0, 255, 255);
+                createImage(ctx, textStates[x][y].x, textStates[x][y].y, 1, 1, 255, 0, 255, 255);
                 textStates[x][y].isInfected = true;
                 total++;
                 pi++
@@ -154,7 +170,7 @@ function run(ctx,textStates, count,numPixelPerFrame) {
         }
     }
 }
-function createImage(ctx,x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number) {
+function createImage(ctx, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number) {
     var id = ctx.createImageData(w, h);
     var d = id.data;
     d[0] = r;
@@ -165,7 +181,7 @@ function createImage(ctx,x: number, y: number, w: number, h: number, r: number, 
 }
 
 
-function fontResize(ctx,width,txt,fontSize) {
+function fontResize(ctx, width, txt, fontSize) {
     let textWidth = ctx.measureText(txt).width;
     let letNum = 2;
     while (width - 20 > textWidth) {
@@ -177,7 +193,7 @@ function fontResize(ctx,width,txt,fontSize) {
         }
     }
 }
-function getPixelData(ctx,txt,width,height,textHeight) {
+function getPixelData(ctx, txt, width, height, textHeight) {
     let x = 0;
     for (let i = 0; i < txt.length; i++) {
         console.log("Text: " + txt[i])
@@ -189,25 +205,25 @@ function getPixelData(ctx,txt,width,height,textHeight) {
     return imgData.data;
 }
 
-function getPixel(index: number,pix) {
+function getPixel(index: number, pix) {
     var i = index * 4;
     return [pix[i], pix[i + 1], pix[i + 2], pix[i + 3]] // returns array [R,G,B,A]
 }
-function getPixelXY(x: number, y: number,pix,width) {
-    return getPixel(y * width + x,pix);
+function getPixelXY(x: number, y: number, pix, width) {
+    return getPixel(y * width + x, pix);
 }
 
 function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function createPixelMatrix(pix,width,height) {
+function createPixelMatrix(pix, width, height) {
     let count = 0;
     let states: Array<Array<IStateVirus>> = []
     for (let x = 0; x < width; x++) {
         let colText = [];
         for (let y = 0; y < height; y++) {
-            let pixInfo = getPixelXY(x, y,pix,width);
+            let pixInfo = getPixelXY(x, y, pix, width);
             let state: IStateVirus = {
                 x,
                 y,
