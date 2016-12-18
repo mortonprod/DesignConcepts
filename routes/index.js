@@ -8,6 +8,9 @@ router.get('/fast', function (req, res) {
 router.get('/blackwhite', function (req, res) {
     res.render('blackWhite', { title: 'Express' });
 });
+router.get('/clouds', function (req, res) {
+    res.render('clouds', { title: 'Express' });
+});
 router.get('/', function (req, res) {
     res.render('virus', { title: 'Express' });
 });

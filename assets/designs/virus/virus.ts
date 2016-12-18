@@ -1,4 +1,12 @@
-﻿interface IStateVirus {
+﻿import * as Promise from "promise";
+//window.addEventListener('resize', resizeCanvas, false);
+//function resizeCanvas() {
+//    ctx.clearRect(0, 0, canvas.width, canvas.height);
+//    canvas.width = window.innerWidth;
+//    canvas.height = window.innerHeight;
+//    runWeb(ctx, states, config.numPixelPerFrame, config.colours);
+//}
+interface IStateVirus {
     x: number,
     y: number
     isInfected: Boolean,
@@ -25,7 +33,7 @@ window.onload = () => {
         fontInfo: "Comic Sans MS, cursive, TSCu_Comic, sans-serif",
         fillStyle: "white",
         strokeStyle: "#1f2f90",
-        lineWidth: 2,
+        lineWidth: 5,
         lineJoin: "round",
         globalAlpha: 1,
         numPixelPerFrame: 50,
@@ -37,6 +45,13 @@ window.onload = () => {
             [0, 0, 255, 255],
             [255, 255, 0, 255],
             [255, 0, 255, 255],
+            [200, 0, 200, 255],
+            [200, 200, 0, 255],
+            [200, 200, 200, 255],
+            [100, 0, 100, 255],
+            [100, 100, 100, 255],
+            [100, 100, 50, 255],
+
         ]
     }
     seedBlackImage(canvas, config);
@@ -52,8 +67,22 @@ function seedBlackImage(canvas: HTMLCanvasElement, config: IConfig) {
     fontResize(ctx, canvas.width, config.txt, config.fontSize);
     let pix = getPixelData(ctx, config.txt, canvas.width, canvas.height, config.textHeight);
     let states = createPixelMatrix(pix, canvas.width, canvas.height);
-    runWeb(ctx, states, config.numPixelPerFrame, config.colours);
-    //run(ctx, obj.textStates, obj.count, config.numPixelPerFrame);
+    runWeb(ctx, states, config.numPixelPerFrame, config.colours, drawOutline);
+    let x = 0;
+    let i = 0;
+    function drawOutline() {
+        setTimeout(function () {
+            ctx.strokeText(config.txt[i], x, config.textHeight);
+            x += ctx.measureText(config.txt[i]).width + ctx.lineWidth;
+            if (i !== config.txt.length - 1) {
+                requestAnimationFrame(drawOutline);
+            } else {
+                console.log("Done");
+            }
+            i++;
+        }, 1000);
+
+    }
 }
 function getTextPixelNumber(states) {
     let textNum = 0;
@@ -67,7 +96,7 @@ function getTextPixelNumber(states) {
     return textNum;
 }
 
-function runWeb(ctx, states: Array<Array<IStateVirus>>, numPixelPerFrame, colours) {
+function runWeb(ctx, states: Array<Array<IStateVirus>>, numPixelPerFrame, colours, cb: Function = function () { }) {
     let textNum = getTextPixelNumber(states);
     let total = 0;
     let pi = 0;
@@ -141,6 +170,7 @@ function runWeb(ctx, states: Array<Array<IStateVirus>>, numPixelPerFrame, colour
             requestAnimationFrame(frame);
         } else {
             console.log("frame end");
+            cb();
         }
     }
 }
