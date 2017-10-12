@@ -14,7 +14,8 @@ var config = {
         fastOne: ['./assets/fastPageOneEntry.js'],
         blackWhiteOne: ['./assets/blackWhiteOneEntry.js'],
         cloudsOne: ['./assets/cloudsOneEntry.js'],
-        virusOne: ['./assets/virusOneEntry.js']
+        virusOne: ['./assets/virusOneEntry.js'],
+        eye: ['./assets/eye/eye.jsx']
     },
     plugins: [
         //require('postcss-smart-import')({ /* ...options */ }),
@@ -28,7 +29,7 @@ var config = {
         libraryTarget: 'umd' // Need this for static site generation.
     },
     resolve: {
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js",".jsx"]
 
     },
     module: {
@@ -39,7 +40,12 @@ var config = {
             {
                 test: /\.(png|ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
                 loader: 'file-loader',
-            }
+            },
+						{
+							test: /\.jsx$/,
+							exclude: /(node_modules)/,
+							loader: 'babel-loader'
+						}
         ]
     },
     postcss: function () {
