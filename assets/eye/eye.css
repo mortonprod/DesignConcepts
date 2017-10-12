@@ -1,0 +1,130 @@
+﻿@keyframes show{
+	0%{
+		opacity:0;
+	}
+	100%{
+		opacity:1;
+	}
+}
+.eye {
+    position: absolute;
+    top: 2.5%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    //overflow: hidden;
+    //width: 50%;
+    height: 95%;
+    bottom: 2.5%;
+}
+
+.eye__box {
+    width: 100vw;
+    height: 100vh;
+}
+
+.eye__image {
+    opacity: 0;
+    animation: show 0.05s forwards;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    //overflow: hidden;
+    //width: 50%;
+    height: 100%;
+}
+
+@media screen and (min-width: 480px) {
+    p {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    p {
+        font-size: 3.5vw;
+    }
+}
+
+.eye__arrow {
+    position: absolute;
+    width: 20%;
+    left: 75%;
+    top: 40%;
+    height: 20%;
+    bottom: 40%;
+    z-index: 10;
+    animation: blink 1s infinite;
+    animation-delay: 2s;
+}
+
+.eye__arrowDown {
+    position: absolute;
+    width: 10%;
+    left: 45%;
+    bottom: 0;
+    height: auto;
+    z-index: 10;
+    transform: translate(-100px);
+    transform: rotate(90deg);
+    animation: blink 1s infinite;
+    animation-delay: 2s;
+}
+
+
+
+
+
+.eye__image--delay0 {
+}
+
+.eye__image--delay1 {
+    animation-delay: 0s;
+}
+
+.eye__image--delay2 {
+    animation-delay: 1.1s;
+}
+
+.eye__image--delay3 {
+    animation-delay: 1.15s;
+}
+
+.eye__image--delay4 {
+    animation-delay: 1.2s;
+}
+
+.eye__image--delay5 {
+    animation-delay: 1.25s;
+}
+
+.eye__image--delay6 {
+    animation-delay: 1.3s;
+}
+
+.eye__image--delay7 {
+    animation-delay: 1.35s;
+}
+
+.eye__image--delay8 {
+    animation-delay: 1.4s;
+}
+
+.eye__image--delay9 {
+    animation-delay: 1.45s;
+}
+
+.eye__image--delay10 {
+    animation-delay: 1.5s;
+}
+
+.eye__image--delay11 {
+    animation-delay: 1.65s;
+}
+
+.box__image{
+    position:absolute;
+    width:100%;
+    height:100%;
+}

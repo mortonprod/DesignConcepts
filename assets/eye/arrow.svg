@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+     width="600px" height="600px" viewBox="0 0 600 600" enable-background="new 0 0 600 600">
+    <g stroke="#f60" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Mobile">
+            <path d="M488,255 L536.5,293" id="Line" stroke="#001FF5" stroke-width="10"></path>
+            <path d="M489,301 L537.5,339" id="Line" stroke="#001FF5" stroke-width="10" transform="translate(513.500000, 320.000000) scale(1, -1) translate(-513.500000, -320.000000) "></path>
+            <path d="M89.5,320.5 L63.5,296.5" id="Line" stroke="#B80400" stroke-width="5" transform="translate(76.500000, 308.500000) scale(1, -1) translate(-76.500000, -308.500000) "></path>
+            <path d="M105.5,320.5 L79.5,296.5" id="Line" stroke="#B80400" stroke-width="5" transform="translate(92.500000, 308.500000) scale(1, -1) translate(-92.500000, -308.500000) "></path>
+            <path d="M89.5,297.5 L63.5,273.5" id="Line" stroke="#B80400" stroke-width="5"></path>
+            <path d="M107.5,297.5 L81.5,273.5" id="Line" stroke="#B80400" stroke-width="5"></path>
+            <path d="M75.5,298 L540.5,298" id="Line" stroke="#001FF5" stroke-width="10"></path>
+        </g>
+    </g>
+</svg>
