@@ -14,6 +14,9 @@ router.get('/clouds', function (req, res) {
 router.get('/', function (req, res) {
     res.render('virus', { title: 'Express' });
 });
+router.get('/eye', function (req, res) {
+    res.render('eye');
+});
 
 
 
