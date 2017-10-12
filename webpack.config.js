@@ -14,7 +14,6 @@ var config = {
         fastOne: ['./assets/fastPageOneEntry.js'],
         blackWhiteOne: ['./assets/blackWhiteOneEntry.js'],
         cloudsOne: ['./assets/cloudsOneEntry.js'],
-        dotsOne: ['./assets/dotsOneEntry.js'],
         virusOne: ['./assets/virusOneEntry.js']
     },
     plugins: [
