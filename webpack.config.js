@@ -15,7 +15,8 @@ var config = {
         blackWhiteOne: ['./assets/blackWhiteOneEntry.js'],
         cloudsOne: ['./assets/cloudsOneEntry.js'],
         virusOne: ['./assets/virusOneEntry.js'],
-        eye: ['./assets/eye/eye.jsx']
+        eye: ['./assets/eye/eye.jsx'],
+        router: ['./assets/react-nav-component-example/index.jsx']
     },
     plugins: [
         //require('postcss-smart-import')({ /* ...options */ }),

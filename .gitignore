@@ -1,3 +1,4 @@
 /public
 /node_modules
 /**/*.swp
+./assets/react-nav-component-example/config.js
