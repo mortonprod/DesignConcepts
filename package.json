@@ -45,7 +45,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.26.0",
     "file-loader": "^1.1.5",
-    "node-sass": "^3.13.0",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^1.1.1",
     "postcss-smart-import": "^0.6.0",
     "precss": "^1.4.0",
